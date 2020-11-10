@@ -192,8 +192,7 @@
 
 	<div class="copyright">
 		<p>
-			Сделал Юрий Ключевский, на интенсиве от
-			<a href="http://webcademy.ru" target="_blank">WebCademy.ru</a>
+			Разработано в Gayrat Shop
 		</p>
 	</div>
 
