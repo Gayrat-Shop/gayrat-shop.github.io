@@ -1,88 +1,203 @@
-<?PHP
+<!DOCTYPE html>
+<html lang="en">
 
-/**
- * Simpla CMS
- *
- * @copyright 	2011 Denis Pikusov
- * @link 		http://simp.la
- * @author 		Denis Pikusov
- *
- */
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<title>техноStore - интернет магазин техники</title>
+	<link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/main.css">
 
-// Засекаем время
-$time_start = microtime(true);
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,900|Open+Sans:400,600,700&amp;subset=cyrillic-ext" rel="stylesheet">
 
-session_start();
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
-require_once('view/IndexView.php');
+</head>
 
-$view = new IndexView();
+<body>
 
+	<!-- white-plate -->
+	<div class="white-plate">
+		<div class="container-fluid">
+			<!-- header -->
+			<div class="header">
+				<div class="row">
+					<div class="col-sm-6">
+						<a href="index.html" class="site-logo">
+							<span>техно</span>Store
+						</a>
+					</div>
+					<div class="col-sm-6">
+						<div class="admin-link">
+							<!-- <i class="fas fa-unlock-alt"></i> -->
+							<a href="./login.html">
+								<img width="38" src="img/icons/padlock.svg" alt="">
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- // header -->
+			<div class="line-between"></div>
+			<!-- content block -->
+			<div class="row">
+				<!-- Left aside -->
+				<div class="col-md-3 col-lg-2"> 
+					<ul class="nav">
+						<li class="nav__element"><a href="!#" class="nav__link">Все товары</a></li>
+						<li class="nav__element"><a href="!#" class="nav__link">Телефоны</a></li>
+						<li class="nav__element"><a href="!#" class="nav__link">Планшеты</a></li>
+						<li class="nav__element"><a href="!#" class="nav__link nav__link--active">Ноутбуки</a></li>
+						<li class="nav__element"><a href="!#" class="nav__link">Компьютеры</a></li>
+					</ul>
+				</div>
+				<!-- // Left aside -->
+				<!-- Center Part -->
+				<div class="col-md-9 col-lg-10">
+					<div class="row">
 
-if(isset($_GET['logout']))
-{
-    header('WWW-Authenticate: Basic realm="Simpla CMS"');
-    header('HTTP/1.0 401 Unauthorized');
-	unset($_SESSION['admin']);
-}
+						<!-- Товар 1 -->
+						<div class="col-sm-6 col-md-6 col-lg-4">
+							<article class="card mb-4">
+								<div class="card-top">
+									<div class="card-top__sale">Sale</div>
+									<div class="card-top__cat">Телефоны</div>
+								</div>
+								<div class="product-img">
+									<img src="img/products/iphone.jpg">
+								</div>
+								<div class="card-body">
+									<h4 class="item-title"><a href="product-page.html">Apple iPhone X 256 ГБ «серый космос»</a></h4>
+									<div class="card-btn">
+										<div class="card-btn__price">
+											75 990 ₽
+										</div>
+										<div class="card-btn__btn">
+											Купить
+										</div>
+									</div>
+								</div>
+							</article>
+						</div>
+						<!-- // Товар 1 -->
 
-// Если все хорошо
-if(($res = $view->fetch()) !== false)
-{
-	// Выводим результат
-	header("Content-type: text/html; charset=UTF-8");	
-	print $res;
+						<!-- Товар 1 -->
+						<div class="col-sm-6 col-lg-4">
+							<div class="card mb-4">
+								<div class="card-top">
+									<div class="card-top__new">Новинка</div>
+									<div class="card-top__cat">Телефоны</div>
+								</div>
+								<div class="product-img">
+									<img src="img/products/iphone.jpg">
+								</div>
+								<div class="card-body">
+									<h4 class="item-title">Apple iPhone X 256 ГБ «серый космос»</h4>
+									<div class="card-btn">
+										<div class="card-btn__price">
+											75 990 ₽
+										</div>
+										<div class="card-btn__btn">
+											Купить
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- // Товар 1 -->
 
-	// Сохраняем последнюю просмотренную страницу в переменной $_SESSION['last_visited_page']
-	if(empty($_SESSION['last_visited_page']) || empty($_SESSION['current_page']) || $_SERVER['REQUEST_URI'] !== $_SESSION['current_page'])
-	{
-		if(!empty($_SESSION['current_page']) && !empty($_SESSION['last_visited_page']) && $_SESSION['last_visited_page'] !== $_SESSION['current_page'])
-			$_SESSION['last_visited_page'] = $_SESSION['current_page'];
-		$_SESSION['current_page'] = $_SERVER['REQUEST_URI'];
-	}		
-}
-else 
-{ 
-	// Иначе страница об ошибке
-	header("http/1.0 404 not found");
-	
-	// Подменим переменную GET, чтобы вывести страницу 404
-	$_GET['page_url'] = '404';
-	$_GET['module'] = 'PageView';
-	print $view->fetch();   
-}
+						<!-- Товар 1 -->
+						<div class="col-sm-6 col-lg-4">
+							<div class="card mb-4">
+								<div class="card-top">
+									<div class="card-top__sale">Sale</div>
+									<div class="card-top__cat">Телефоны</div>
+								</div>
+								<div class="product-img">
+									<img src="img/products/iphone.jpg">
+								</div>
+								<div class="card-body">
+									<h4 class="item-title">Apple iPhone X 256 ГБ «серый космос»</h4>
+									<div class="card-btn">
+										<div class="card-btn__price">
+											75 990 ₽
+										</div>
+										<div class="card-btn__btn">
+											Купить
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- // Товар 1 -->
 
+						<!-- Товар 1 -->
+						<div class="col-sm-6 col-lg-4">
+							<div class="card mb-4">
+								<div class="card-top">
+									<div class="card-top__sale">Sale</div>
+									<div class="card-top__cat">Телефоны</div>
+								</div>
+								<div class="product-img">
+									<img src="img/products/iphone.jpg">
+								</div>
+								<div class="card-body">
+									<h4 class="item-title">Apple iPhone X 256 ГБ «серый космос»</h4>
+									<div class="card-btn">
+										<div class="card-btn__price">
+											75 990 ₽
+										</div>
+										<div class="card-btn__btn">
+											Купить
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- // Товар 1 -->
 
-$p=11; $g=2; $x=7; $r = ''; $s = $x;
-$bs = explode(' ', $view->config->license);		
-foreach($bs as $bl){
-	for($i=0, $m=''; $i<strlen($bl)&&isset($bl[$i+1]); $i+=2){
-		$a = base_convert($bl[$i], 36, 10)-($i/2+$s)%26;
-		$b = base_convert($bl[$i+1], 36, 10)-($i/2+$s)%25;
-		$m .= ($b * (pow($a,$p-$x-1) )) % $p;}
-	$m = base_convert($m, 10, 16); $s+=$x;
-	for ($a=0; $a<strlen($m); $a+=2) $r .= @chr(hexdec($m{$a}.$m{($a+1)}));}
+						<!-- Товар 1 -->
+						<div class="col-sm-6 col-lg-4">
+							<div class="card mb-4">
+								<div class="card-top">
+									<div class="card-top__sale">Sale</div>
+									<div class="card-top__cat">Телефоны</div>
+								</div>
+								<div class="product-img">
+									<img src="img/products/iphone.jpg">
+								</div>
+								<div class="card-body">
+									<h4 class="item-title">Apple iPhone X 256 ГБ «серый космос»</h4>
+									<div class="card-btn">
+										<div class="card-btn__price">
+											75 990 ₽
+										</div>
+										<div class="card-btn__btn">
+											Купить
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- // Товар 1 -->
 
-@list($l->domains, $l->expiration, $l->comment) = explode('#', $r, 3);
+					</div>
+				</div>
+				<!-- // Center Part -->
+			</div>
+			<!-- content block -->
+		</div>
+	</div>
+	<!-- // white-plate -->
 
-$l->domains = explode(',', $l->domains);
+	<div class="copyright">
+		<p>
+			Сделал Юрий Ключевский, на интенсиве от
+			<a href="http://webcademy.ru" target="_blank">WebCademy.ru</a>
+		</p>
+	</div>
 
-$h = getenv("HTTP_HOST");
-if(substr($h, 0, 4) == 'www.') $h = substr($h, 4);
-if((!in_array($h, $l->domains) || (strtotime($l->expiration)<time() && $l->expiration!='*')))
-{
-	print "<div style='text-align:center; font-size:22px; height:100px;'>Лицензия недействительна<br><a href='http://simplacms.ru'>Скрипт интернет-магазина Simpla</a></div>";
-}
+	<script src="js/main.js"></script>
+</body>
 
-// Отладочная информация
-if(1)
-{
-	print "<!--\r\n";
-	$time_end = microtime(true);
-	$exec_time = $time_end-$time_start;
-  
-  	if(function_exists('memory_get_peak_usage'))
-		print "memory peak usage: ".memory_get_peak_usage()." bytes\r\n";  
-	print "page generation time: ".$exec_time." seconds\r\n";  
-	print "-->";
-}
+</html>
